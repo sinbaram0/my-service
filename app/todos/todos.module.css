@@ -1,0 +1,44 @@
+.page { min-height: 100svh; background: #0a0a0a; color: #f4f4f5; padding: 28px 24px 48px; font-family: Arial, Helvetica, sans-serif; }
+.container { width: 100%; max-width: 760px; margin: 0 auto; }
+.nav { display: flex; justify-content: space-between; align-items: center; gap: 16px; font-size: 13px; color: #a1a1aa; }
+.nav a { color: #f4f4f5; text-decoration: none; font-size: 18px; font-weight: 700; }
+.nav a span, .header h1 span { color: #06b6d4; }
+.account { display: flex; justify-content: flex-end; align-items: center; flex-wrap: wrap; gap: 12px; margin-top: 20px; color: #a1a1aa; font-size: 13px; }
+.account span { min-width: 0; overflow-wrap: anywhere; }
+.account button { min-height: 44px; padding: 8px 14px; border: 1px solid #3f3f46; border-radius: 8px; background: #121214; color: #67e8f9; white-space: nowrap; }
+.header { padding: 66px 0 36px; }
+.accent { height: 4px; width: 42px; background: #06b6d4; margin-bottom: 26px; }
+.eyebrow { color: #67e8f9; font-size: 11px; font-weight: 700; letter-spacing: .18em; margin-bottom: 12px; }
+.header h1 { font-size: clamp(36px, 7vw, 58px); line-height: 1.2; font-weight: 750; letter-spacing: -.045em; }
+.description { margin-top: 16px; color: #a1a1aa; font-size: 16px; line-height: 1.6; }
+.panel { border: 1px solid #29292e; border-radius: 20px; padding: 30px; background: #121214; }
+.form label { display: block; margin-bottom: 12px; font-size: 14px; font-weight: 600; }
+.inputRow { display: flex; gap: 10px; }
+.inputRow input { min-width: 0; flex: 1; border: 1px solid #3f3f46; border-radius: 10px; background: #09090b; color: #fafafa; font-size: 16px; padding: 15px; }
+.inputRow input::placeholder { color: #8c8c98; }
+.page button { cursor: pointer; transition: background .15s; }
+.page button:disabled { opacity: .5; cursor: default; }
+.page button:focus-visible, .page input:focus-visible, .page a:focus-visible { outline: 2px solid #67e8f9; outline-offset: 4px; }
+.add { background: #06b6d4; color: #042b33; border: none; border-radius: 10px; padding: 0 23px; min-height: 52px; font-size: 16px; font-weight: 700; white-space: nowrap; }
+.add:hover:not(:disabled) { background: #22d3ee; }
+.listHeader { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin: 34px 0 16px; }
+.listHeader h2 { font-size: 16px; font-weight: 700; }
+.listHeader > span { font-size: 12px; color: #a1a1aa; }
+.list { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.item { display: flex; align-items: center; gap: 8px; padding: 6px 12px 6px 8px; border: 1px solid #303036; border-radius: 12px; background: #1a1a1e; }
+.toggle { min-width: 0; flex: 1; display: flex; gap: 13px; align-items: center; text-align: left; padding: 12px 5px; border: none; background: transparent; color: #f4f4f5; min-height: 48px; font-size: 16px; line-height: 1.6; }
+.check { display: flex; align-items: center; justify-content: center; flex-shrink: 0; width: 23px; height: 23px; border: 1px solid #71717a; border-radius: 7px; font-size: 15px; font-weight: 700; }
+.title { overflow-wrap: anywhere; }
+.done .check { background: #06b6d4; border-color: #06b6d4; color: #042b33; }
+.done .title { text-decoration: line-through; color: #a1a1aa; }
+.delete { flex-shrink: 0; background: transparent; border: none; color: #d4d4d8; padding: 10px 12px; min-height: 44px; font-size: 13px; border-radius: 8px; }
+.delete:hover:not(:disabled) { background: #3b2029; color: #fda4af; }
+.empty { text-align: center; padding: 38px 8px; color: #a1a1aa; font-size: 15px; line-height: 1.7; }
+.empty > span { display: block; color: #06b6d4; font-size: 28px; margin-bottom: 12px; }
+.empty small { display: block; margin-top: 6px; font-size: 13px; }
+.hint { color: #a1a1aa; font-size: 12px; text-align: center; margin-top: 24px; }
+.footer { color: #a1a1aa; font-size: 12px; text-align: center; padding-top: 26px; }
+.error { padding: 14px; margin-bottom: 16px; border: 1px solid #7f3946; border-radius: 10px; color: #fecdd3; font-size: 14px; line-height: 1.7; }
+.error button { display: block; margin-top: 8px; background: transparent; color: #67e8f9; border: none; text-decoration: underline; min-height: 44px; }
+.srOnly { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+@media (max-width: 480px) { .page { padding: 24px 16px 36px; } .header { padding: 44px 0 28px; } .panel { padding: 20px 16px; border-radius: 16px; } .inputRow { flex-direction: column; } .add { width: 100%; } .nav > span { font-size: 11px; } .delete { padding: 10px 8px; } }
