@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import styles from "./weather.module.css";
+import CurrentLocationWeather from "@/components/CurrentLocationWeather";
 
 type Weather = {
   temperature: number;
@@ -41,13 +42,15 @@ export default function WeatherPage() {
     <main className={styles.page} lang="ko">
       <div className={styles.container}>
         <header className={styles.header}>
-          <p className={styles.eyebrow}>SEOUL WEATHER</p>
-          <h1>서울의 지금 날씨</h1>
+          <p className={styles.eyebrow}>WEATHER</p>
+          <h1>지금 날씨</h1>
           <p className={styles.subtitle}>오늘의 공기, 외출 전 한눈에 확인하세요.</p>
-          <span className={styles.location}>서울 · 대한민국</span>
+
         </header>
 
-        <section aria-label="서울 현재 날씨" aria-busy={loading}>
+        <div className={styles.weatherRows}>
+        <section className={styles.weatherRow} aria-labelledby="seoul-weather-title" aria-busy={loading}>
+          <h2 id="seoul-weather-title" className={styles.rowLabel}>서울</h2>
           {loading ? (
             <div className={styles.message} role="status"><span className={styles.loader} />서울 날씨를 불러오는 중입니다…</div>
           ) : error ? (
@@ -56,20 +59,18 @@ export default function WeatherPage() {
               <button className={styles.retry} onClick={() => setAttempt(value => value + 1)}>다시 불러오기</button>
             </div>
           ) : weather ? (
-            <div className={styles.grid}>
-              <article className={`${styles.card} ${styles.temperature}`}>
-                <h2>현재 온도</h2>
-                <p className={styles.bigValue}>{weather.temperature.toFixed(1)}<span>°C</span></p>
-                <p className={styles.note}>서울의 현재 기온</p>
-              </article>
-              <article className={styles.card}><h2>체감 온도</h2><p className={styles.value}>{weather.feelsLike.toFixed(1)}<span>°C</span></p></article>
-              <article className={styles.card}><h2>날씨</h2><p className={`${styles.value} ${styles.description}`}>{weather.description}</p></article>
-              <article className={styles.card}><h2>습도</h2><p className={styles.value}>{weather.humidity}<span>%</span></p></article>
-              <article className={styles.card}><h2>바람 속도</h2><p className={styles.value}>{weather.windSpeed.toFixed(1)}<span>m/s</span></p></article>
+            <div className={styles.readings}>
+              <strong className={styles.rowTemperature}>{weather.temperature.toFixed(1)} °C</strong>
+              <span>{weather.description}</span>
+              <span>체감 {weather.feelsLike.toFixed(1)} °C</span>
+              <span>습도 {weather.humidity}%</span>
+              <span>풍속 {weather.windSpeed.toFixed(1)} m/s</span>
             </div>
           ) : null}
         </section>
-        <footer className={styles.footer}>날씨 데이터 제공: OpenWeatherMap · 서울 기준</footer>
+        <CurrentLocationWeather />
+        </div>
+        <footer className={styles.footer}>날씨 데이터 제공: OpenWeatherMap · 서울 및 기기 위치 기준</footer>
       </div>
     </main>
   );

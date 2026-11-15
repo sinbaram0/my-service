@@ -14,6 +14,7 @@ export default function Landing() {
         <a href="#" className="wordmark" aria-label="Vellum 홈"><span className="brand-icon">v</span>vellum<span className="brand-dot">®</span></a>
         <nav aria-label="메인 메뉴" className={menu ? "navigation expanded" : "navigation"}>
           <a href="#platform" onClick={() => setMenu(false)}>플랫폼</a><a href="#philosophy" onClick={() => setMenu(false)}>우리의 관점</a><a href="#questions" onClick={() => setMenu(false)}>자주 묻는 질문</a>
+          <a href="/weather">날씨 보기</a>
         </nav>
         <button className="header-cta" onClick={open}>얼리 액세스 신청 <span aria-hidden="true">↗</span></button>
         <button className="menu-toggle" aria-label="메뉴" aria-expanded={menu} onClick={() => setMenu(!menu)}>{menu ? "닫기" : "메뉴"}</button>

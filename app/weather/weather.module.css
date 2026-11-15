@@ -37,3 +37,25 @@
   .description { font-size: 22px; }
 }
 @media (prefers-reduced-motion: reduce) { .loader { animation: none; } }
+
+.weatherRows { display: flex; flex-direction: column; gap: 16px; }
+.weatherRow { display: grid; grid-template-columns: 110px minmax(0, 1fr); gap: 24px; align-items: start; padding: 28px; border: 1px solid #243348; border-radius: 18px; background: #111c2d; }
+.rowLabel { font-size: 20px; font-weight: 700; color: #a5f3fc; padding-top: 4px; }
+.readings { display: flex; align-items: center; flex-wrap: wrap; gap: 14px 24px; line-height: 1.7; font-size: 16px; }
+.rowTemperature { color: #67e8f9; font-size: 30px; font-variant-numeric: tabular-nums; }
+.locationContent { min-width: 0; }
+.locationContent .retry { margin-top: 18px; }
+.locationNotice { color: #b3c1d3; font-size: 14px; line-height: 1.7; margin-top: 14px; }
+.rowMessage { font-size: 16px; line-height: 1.8; }
+.weatherRow .message { min-height: 0; align-items: flex-start; padding: 0; border: 0; text-align: left; background: transparent; }
+.retry { min-height: 44px; font-size: 16px; }
+.retry:disabled { opacity: .6; cursor: wait; }
+@media (max-width: 640px) {
+  .weatherRow { grid-template-columns: 80px minmax(0, 1fr); padding: 20px 16px; gap: 12px; }
+  .rowLabel { font-size: 17px; }
+  .readings { gap: 8px 16px; }
+  .rowTemperature { font-size: 26px; }
+  .locationContent .retry { width: 100%; padding: 10px; }
+}
+
+.rowLabel { overflow-wrap: anywhere; }
