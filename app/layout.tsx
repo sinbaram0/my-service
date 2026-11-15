@@ -1,4 +1,4 @@
-﻿import type { Metadata } from "next";
+﻿import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import localFont from "next/font/local";
 import { Poppins } from "next/font/google";
@@ -30,8 +30,13 @@ const pretendard = localFont({
 });
 
 export const metadata: Metadata = {
+  icons: { apple: "/icon-192x192.png" },
   title: "Vellum",
   description: "비즈니스 금융의 새로운 챕터",
+};
+
+export const viewport: Viewport = {
+  themeColor: "#1a1a2e",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
